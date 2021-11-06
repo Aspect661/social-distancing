@@ -1,0 +1,89 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		// Primary Meta Tags
+		title Social Distancing
+		meta(name='title' content='Social Distancing')
+		meta(name='description' content='NOT ME, BUT YOU')
+		// Open Graph / Facebook
+		meta(property='og:type' content='website')
+		meta(property='og:url' content='https://nss-uiet.herokuapp.com/')
+		meta(property='og:title' content='Social Distancing')
+		meta(property='og:description' content='NOT ME, BUT YOU')
+		meta(property='og:image' content='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/NSS_Hand_Logo.jpg/220px-NSS_Hand_Logo.jpg')
+		// Twitter
+		meta(property='twitter:card' content='summary_large_image')
+		meta(property='twitter:url' content='https://nss-uiet.herokuapp.com/')
+		meta(property='twitter:title' content='Social Distancing')
+		meta(property='twitter:description' content='NOT ME, BUT YOU')
+		meta(property='twitter:image' content='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/NSS_Hand_Logo.jpg/220px-NSS_Hand_Logo.jpg')
+
+
+		link(rel='icon' type='image/ico' href='../static/img/icons/nss_symbol_oCJ_icon.ico')
+		link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1' crossorigin='anonymous')
+		link(rel="stylesheet" href="../static/css/style.css")
+		link(rel="stylesheet" href="../static/css/responsive.css")
+		link(rel="stylesheet" href="../static/css/aboutcards.css")
+		
+		
+		title Social Distancing
+	body
+		if err!=undefined 
+			.alert.alert-warning.alert-dismissible.fade.show.mb-0(role='alert')
+				strong=err
+				button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')
+		else
+		if sucessed!=undefined 
+			.alert.alert-success.alert-dismissible.fade.show.mb-0(role='alert')
+				strong=sucessed
+				button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')
+		else
+		nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+			.container-fluid
+				a.navbar-brand(href='#')
+					img(src='../static/img/1.png' height='28' alt='Social Distancing logo')
+					|  Social Distancing
+				//- a.navbar-brand(href='#') Social Distancing
+				button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+					span.navbar-toggler-icon
+				#navbarSupportedContent.collapse.navbar-collapse
+					ul.navbar-nav.me-auto.mb-2.mb-lg-0
+						li.nav-item
+							a.nav-link(aria-current='page' href='#') Home
+						//- li.nav-item
+						//- 	a.nav-link(href='#events') Events
+						//- li.nav-item
+						//- 	a.nav-link(href='#team') Team
+						//- li.nav-item
+						//- 	a.nav-link(href='#about') About
+						//- li.nav-item
+						//- 	a.nav-link(href='#contact') Contact
+						//- li.nav-item
+						//- 	a.nav-link(href='/admin1') Admin Panel
+					
+
+		div
+			section#contact.contact100
+				h1.text-center100 Social Distancing
+				form(action= "/videoupload", method= "post", class= "form100" enctype='multipart/form-data')
+					.form-group
+						label.control-label(for='file') Upload File
+						.col-md-9
+						input.form-control(type='file' name='file' required='')
+					button.btn100.btn-sm100.btn-dark100 Submit
+				//- .form
+					input#name.form-input(type="text" name="name" placeholder="Enter Your name")
+					input#phone.form-input(type="text" name="phone" placeholder="Enter Your Phone")
+					input#email.form-input(type="email" name="email" placeholder="Enter Your email")
+					textarea#text.form-input(name="text" cols="30" rows="10" placeholder="Ellaborate your concern" style="height: 77px;resize: none;")
+					button.btn.btn-sm.btn-dark Submit
+		
+		footer.footer100
+			p.text-footer100
+				| Copyright © - Nitish - All rights reserved
+				br
+				| Created by - Nitish Gupta
+		//- script(src="../static/js/resp.js")
+		script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW' crossorigin='anonymous')

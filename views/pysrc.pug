@@ -1,0 +1,181 @@
+doctype html
+html
+  head
+    title Admin Panel
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='icon' type='image/ico' href='../static/img/icons/nss_symbol_oCJ_icon.ico')
+    link(rel='stylesheet', href='/static/styleadmin1.css', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap', rel='stylesheet')
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous")
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.2/css/all.css', integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay', crossorigin='anonymous')
+    link(rel="stylesheet" href="./static/tablestyle.css")
+    link(rel="stylesheet" href="./static/css/style.css")
+    link(rel="stylesheet" href="./static/css/responsive.css")
+    
+    
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+      .container-fluid
+        a.navbar-brand(href='#')
+          img(src='../static/img/1.png' height='28' alt='NSS UIET logo')
+          |  NSS UIET
+        //- a.navbar-brand(href='#') NSS UIET
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            li.nav-item
+              a.nav-link(aria-current='page' href='/') 
+                b Home
+            li.nav-item
+              a.nav-link(href='/#events') 
+                b Events
+            li.nav-item
+              a.nav-link(href='/#team') 
+                b Team
+            li.nav-item
+              a.nav-link(href='/#about')
+                b About
+            li.nav-item
+              a.nav-link(href='/#contact') 
+                b Contact
+            li.nav-item
+              a.nav-link(href="/register") 
+                b Add Admin
+            li.nav-item
+              a.nav-link(href="/list") 
+                b Admin List
+            li.nav-item.dropdown
+              a#navbarDropdown-dark.nav-link.dropdown-toggle(href='' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                | Logout
+              ul.dropdown-menu(aria-labelledby='navbarDropdown')
+                li
+                  a.dropdown-item(href='/logout') Logout
+                li
+                  a.dropdown-item(href='/logoutall') Logout from all devices
+           
+    //- nav.navbar.footer.h-nav-resp
+    //-   ul.nav-list.v-class-resp
+    //-     .logo
+    //-       img(src="../static/img/1.png" alt="logo")
+    //-     li
+    //-       a(href="#") Home
+        
+    //-     li
+    //-       a(href="/#team") Team
+    //-     li
+    //-       a(href="/#about") About
+    //-     li
+    //-       a(href="/register") Add_Admin
+    //-     li
+        //-   a(href="/logout") logout
+        //- //- li
+        //-   a(href="/logoutall") logoutall
+    //-   .burger
+    //-     .line
+    //-     .line
+    //-     .line
+    .container100
+      h2
+        | Admins of NSS UIET
+      ul.responsive-table100
+        li.table-header100=x
+    
+        
+        
+        //- each collection in data
+          li.table-row100
+            .col100.col-1100(data-label="Name")=collection.name
+            .col100.col-2100(data-label="Email")=collection.email
+            .col100.col-3100(data-label="Phone")=collection.phone
+            .col100.col-4100(data-label="Concern")=collection.concern
+            .col100.col-5100(data-label="Status")= collection.status==undefined?"Unseen":collection.status
+            .col100.col-6100(data-label="Update Status")
+              if collection.status=="Resolved"
+                form(action='/delete/'+collection._id)
+                  button.del-button100(type="submit")
+                      i.fa.fa-trash(aria-hidden='true')
+              else 
+                if collection.status=="Seen"
+                  form(action='/save/'+collection._id+'/resolved', method="post")
+                    button.resolved-button100(type="submit")
+                      i.fa.fa-check(aria-hidden='true')
+                else     
+                  form(action='/save/'+collection._id+'/seen', method="post")
+                    button.seen-button100(type="submit")
+                      i.fa.fa-eye(aria-hidden='true')
+            
+    
+      //-  div.todo-container
+    
+      //- form.todo-header(action='/', method='POST')
+        input(type='text', name='content')
+        button(type='submit')
+          span.fas.fa-plus
+    //- div.aligntable  
+    //-   h1.list-heading= message
+
+    //-   div.tablediv
+    //-     table.table
+    //-       thead
+    //-         tr
+    //-           th(scope="col") Name
+    //-           th(scope="col") Email
+    //-           th(scope="col") Phone
+    //-           th(scope="col") Concern
+    //-           th(scope="col") Status
+    //-       tbody
+    //-         each collection in data
+    //-           tr
+    //-             th(scope="row")=collection.name
+    //-             td=collection.email
+    //-             td=collection.phone
+    //-             td=collection.concern
+    //-             td=collection.status
+              
+          //- tr
+          //-   td 1
+          //-   td Mark
+          //-   td Otto
+          //-   td @mdo
+          //- tr
+          //-   th(scope="row") 2
+          //-   td Jacob
+          //-   td Thornton
+          //-   td @fat
+          //- tr
+          //-   th(scope="row") 3
+          //-   td(colspan="2") Larry the Bird    
+    //- table.table
+      th Name
+      th Email
+      th Phone
+      th Concern
+      th status
+      each collection in data
+        tr
+          td=collection.name
+          td=collection.email
+          td=collection.phone
+          td=collection.concern
+          td
+            form(action='/save/'+collection._id, method="post")
+              input(type="text" value=collection.status name='status')
+              input(type="submit" value="submit")
+
+        //- ul.todo-list
+          each collection in data
+            li.todo-list-item=collection.name
+            li.todo-list-item=collection.concern
+                div.todo-list-item-name
+                a.edit(href='/edit/'+collection._id)
+                  span.fas.fa-edit
+                a.remove(href='todos/'+collection._id)
+                  span.fas.fa-times
+    footer.footer100.f
+      p.text-footer100
+        | Copyright © - NSS UIET - All rights reserved
+        br
+        | Created by - Nitish Gupta
+    //- script(src="../static/js/resp.js")
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW' crossorigin='anonymous')

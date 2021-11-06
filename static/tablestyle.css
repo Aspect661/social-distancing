@@ -1,0 +1,143 @@
+body {
+    font-family: 'lato', sans-serif;
+}
+.container100 {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+}
+h2 small {
+    font-size: 0.5em;
+}
+.responsive-table100{
+    text-align: center;
+    padding: 0rem 1rem 1rem 1rem;
+}
+.responsive-table100 li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.responsive-table100 .table-header100 {
+    background-color: #000000ab;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: rgb(255, 255, 255);
+    /* text-align: center; */
+}
+.responsive-table100 .table-row100 {
+    background-color: #fff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+.responsive-table100 .col-1100 {
+    flex-basis: 100%;
+    width: 0;
+}
+.responsive-table100 .col-2100 {
+    flex-basis: 100%;
+    width: 0;
+}
+.responsive-table100 .col-3100 {
+    flex-basis: 100%;
+    width: 0;
+}
+.responsive-table100 .col-4100 {
+    flex-basis: 100%;
+    width: 0;
+}
+.responsive-table100 .col-5100 {
+    flex-basis: 100%;
+    width: 0;
+  }
+.responsive-table100 .col-6100 {
+    flex-basis: 100%;
+    width: 0;
+}
+input.pendingbutton100{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#d72f2f;;
+    text-align:center;
+    transition: all 0.2s;
+    width: 120px;
+}
+input.resolvedbutton100{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#1c9534ba;
+    text-align:center;
+    transition: all 0.2s;
+    width: 120px;
+}
+input.pendingbutton100:hover{
+    color: black;
+    cursor: pointer;
+}
+input.resolvedbutton100:hover{
+    color: rgb(255, 255, 255);
+    cursor: default;
+}
+.del-button100{
+    background: #f00;
+    width: 35px;
+    color: white;
+}
+.seen-button100{
+    background: rgb(255, 239, 1);
+    width: 35px;
+    color: rgb(0, 0, 0);
+}
+.resolved-button100{
+    background: rgba(54, 168, 30);
+    width: 35px;
+    color: white;
+}
+@media all and (max-width: 1140px) {
+    .responsive-table100 .table-header100 {
+        display: none;
+    }
+    .responsive-table100 li {
+        display: block;
+    }
+    
+    .responsive-table100 .col100 {
+        flex-basis: 100%;
+    }
+    .responsive-table100 .col100 {
+        display: flex;
+        padding: 10px 0;
+    }
+    
+    .responsive-table100 .col100:before {
+        color: #6c7a89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+    }
+}

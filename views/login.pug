@@ -1,0 +1,88 @@
+doctype html
+head
+  title Login V1
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  script(src='https://kit.fontawesome.com/e1391d7e22.js')
+  link(rel='icon' type='image/png' href='../static/images/icons/favicon.ico')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1' crossorigin='anonymous')
+  link(rel='stylesheet' type='text/css' href='static/main.css')
+  link(rel="stylesheet" href="../static/css/style.css")
+  link(rel="stylesheet" href="../static/css/responsive.css") 
+  
+body
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
+    .container-fluid
+      a.navbar-brand(href='#')
+        img(src='../static/img/1.png' height='28' alt='NSS UIET logo')
+        |  NSS UIET
+      //- a.navbar-brand(href='#') NSS UIET
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          li.nav-item
+            a.nav-link(aria-current='page' href='/') 
+              b Home
+          li.nav-item
+            a.nav-link(href='/#events') 
+              b Events
+          li.nav-item
+            a.nav-link(href='/#team') 
+              b Team
+          li.nav-item
+            a.nav-link(href='/#about')
+              b About
+          li.nav-item
+            a.nav-link(href='/#contact') 
+              b Contact
+  .limiter
+    .container-login100
+      .wrap-login100
+        .login100-pic.js-tilt(data-tilt='')
+          img(src='../static/images/img-01.png' alt='IMG')
+        
+        form.login100-form.validate-form(action= "/login", method= "post", class= "myForm")
+          if err!=undefined
+            .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+              strong=err
+              button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')
+
+          span.login100-form-title
+            | Member Login
+          .wrap-input100.validate-input(data-validate='Valid email is required: ex@abc.xyz')
+            input.input100(type='text' name='email' placeholder='Email' , value= email =!undefined ? email : "")
+            span.focus-input100
+            span.symbol-input100
+              i.fa.fa-envelope(aria-hidden='true')
+          .wrap-input100.validate-input(data-validate='Password is required')
+            input.input100(type='password' name='password' placeholder='Password')
+            span.focus-input100
+            span.symbol-input100
+              i.fa.fa-lock(aria-hidden='true')
+          .container-login100-form-btn
+            button.login100-form-btn
+              | Login
+            .text-center.p-t-12
+              a.txt2(href='/')
+                | Visit NSS Website
+                i.fa.fa-long-arrow-alt-right.m-l-5(aria-hidden='true')
+            
+  script.
+    $('.js-tilt').tilt({
+    scale: 1.1
+    })
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-23581568-13')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-23581568-13');
+  footer.footer100
+    p.text-footer100
+      | Copyright © - NSS UIET - All rights reserved
+      br
+      | Created by - Nitish Gupta
+  //- script(src="../static/js/resp.js")
+  //- script(src='js/main.js')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW' crossorigin='anonymous')
