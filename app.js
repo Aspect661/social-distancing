@@ -1,13 +1,13 @@
 require("dotenv").config();
 const express = require('express');
 const app = express();
-require('./db/conn');
-const Register = require('./models/models');
+// require('./db/conn');
+// const Register = require('./models/models');
 const path = require("path");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-const auth = require("../middleware/auth")
+const auth = require("./middleware/auth")
 var multer = require('multer');
 const port = process.env.PORT || 3000;
 
@@ -25,7 +25,7 @@ app.use(cookieParser())
 
 // PUG SPECIFIC STUFF
 app.set('view engine', 'pug') // Set the template engine as pug
-app.set('views', path.join(__dirname, '../views')) // Set the views directory
+app.set('views', path.join(__dirname, './views')) // Set the views directory
 
 var Storage= multer.diskStorage({
   destination:"",
